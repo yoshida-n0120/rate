@@ -1,0 +1,55 @@
+/* ページ全体のフォントを丸ゴシックにする場合 */
+body {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+/* タイトルだけをより太く目立たせる場合 */
+h1 {
+    font-weight: bold;
+}
+
+/* ==========================================================
+ * Slickスライドショーの見た目を綺麗に整えるCSS
+ * ========================================================== */
+
+/* 1. スライド全体の横幅を固定し、画面からはみ出た左右の画像を隠すマスク */
+.slideshow-container {
+    width: 100%;
+    overflow: hidden; /* ★これがはみ出た縦長画像をカットする一番重要な命綱です */
+    position: relative;
+}
+
+.main-slider {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* 2. 画像を包むコンテナのサイズを統一する */
+.slider-item {
+    outline: none; /* クリックした時の青い枠線を消す */
+}
+
+/* 3. 画像自体のサイズを完全に均一にして、縦長写真も自動トリミングする */
+.slider-item img {
+    width: 100%;
+    height: 450px;      /* ★スライドショーの「高さ」をここで固定します（お好みで調整OK） */
+    object-fit: cover;  /* ★画像がびよーんと伸びるのを防ぎ、綺麗に中央で切り抜く魔法のプロパティ */
+    border-radius: 15px; /* 角を少し丸くしてマイルドに */
+    padding: 0 15px;    /* 画像と画像の間に程よいスキマを作る */
+    opacity: 0.4;       /* 真ん中以外の画像は、一歩引いて少し薄くしておく */
+    transition: opacity 0.3s ease; /* 切り替わるときに滑らかにフェード */
+}
+
+/* 4. ★今、中央（メイン）に来ている画像だけをクッキリ明るく100%表示にする */
+.main-slider .slick-center img {
+    opacity: 1;
+}
+
+/* 5. 下のドット（...）の位置や余白をちょっとおしゃれに調整 */
+.slick-dots {
+    bottom: -30px;
+}
+.slick-dots li button:before {
+    font-size: 10px;
+    color: #000;
+}
