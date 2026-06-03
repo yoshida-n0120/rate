@@ -21,9 +21,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="mt-3 mb-5">
+    <header class="mt-5">
         <div class="container d-flex justify-content-around align-items-center">
-            <h1 class="h4 mb-0 ">
+            <h1>
                 <a href="index.php"><i class="fa-solid fa-paw"></i>Rate-album</a>
             </h1>
             <nav>
@@ -34,7 +34,7 @@
     </header>
 
     <main class="container">
-        <section class="slideshow-container mb-5">
+        <section class="slideshow-container">
             <?php
                 // 読み込み側のファイルの先頭にも追加
                 date_default_timezone_set('Asia/Tokyo');
@@ -56,24 +56,43 @@
             </div>
         </section>
 
-        <section class="upload-area mb-5">
-            <h2 class="h5 mb-4 text-center">ラテの写真をアップロード</h2>
-            <form action="up.php" method="post" enctype="multipart/form-data" class="row justify-content-center g-3" id="up" >
+        <section class="upload-area my-5"> 
+            <h2>ラテの写真をアップロード</h2>
+            <form action="up.php" method="POST" enctype="multipart/form-data" class="mt-4">
+                
                 <input type="hidden" name="client_upload_time" id="client_upload_time">
-                <div class="col-md-6">
-                    <input type="file" name="photo-name" class="form-control" accept="image/*" required>
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8">
+                        
+                        <label for="file_upload" class="upload-drop-zone">
+                            <div class="upload-zone-content">
+                                <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                                <p class="upload-text-main">クリックして写真を選択</p>
+                                <p class="upload-text-sub">または、ここにファイルをドロップ</p>
+                                
+                                <span id="file-name-preview" class="badge mt-2 p-2">選択されていません</span>
+                            </div>
+                            <input type="file" name="photo-name" id="file_upload" accept="image/*" required>
+                        </label>
+                        
+                    </div>
                 </div>
-                <div class="col-md-auto">
-                    <button type="submit" class="btn btn-primary px-4">アップロードする</button>
+
+                <div class="mt-4 text-center"> 
+                    <button type="submit" id="up" class="btn btn-upload btn-lg">
+                        アップロードする <i class="fa-solid fa-paw"></i>
+                    </button>
                 </div>
+                
             </form>
         </section>
         
     </main>
 
 
-    <footer>
-
+    <footer class="py-4 mt-5 border-top text-center text-muted small">
+        <p>&copy; Rate-album All Rights Reserved.</p>
     </footer>
     <!-- Bootstrap 5 & jQuery JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

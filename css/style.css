@@ -1,55 +1,192 @@
-/* ページ全体のフォントを丸ゴシックにする場合 */
+
+/* ==========================================================
+ * 全体のベース設定（フォントと背景）
+ * ========================================================== */
 body {
     font-family: 'M PLUS Rounded 1c', sans-serif;
-}
-
-/* タイトルだけをより太く目立たせる場合 */
-h1 {
-    font-weight: bold;
+    background-color: #fcfaf6; /* ほんのり温かみのあるミルクホワイト */
+    color: #5c4636;            /* 真っ黒ではなく、優しいココアブラウン */
 }
 
 /* ==========================================================
- * Slickスライドショーの見た目を綺麗に整えるCSS
+ * ヘッダー部分のデザイン
  * ========================================================== */
+header {
+    height: 60px;
+    margin-bottom: 100px;
+}
+header a {
+    color: #5c4636 !important;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+header a:hover {
+    color: #8d7360 !important;
+}
 
-/* 1. スライド全体の横幅を固定し、画面からはみ出た左右の画像を隠すマスク */
+/* ナビゲーションのボタンを丸く優しいカフェラテ色に */
+header .btn-dark {
+    color: #fff !important;
+    background-color: #8d7360;
+    border-color: #8d7360;
+    border-radius: 20px; /* カチッと感をなくして丸く */
+    padding: 6px 16px;
+    font-weight: 700;
+}
+header .btn-dark:hover {
+    color: #fff !important;
+    background-color: #74401b;
+    border-color: #755e4e;
+}
+
+header .btn-outline-dark {
+    color: #8d7360;
+    border-color: #8d7360;
+    border-radius: 20px;
+    padding: 6px 16px;
+}
+header .btn-outline-dark:hover {
+    background-color: #8d7360;
+        color: #fff !important;
+
+}
+
+/* ==========================================================
+ * トップページ・スライダー部分（slick）
+ * ========================================================== */
 .slideshow-container {
     width: 100%;
-    overflow: hidden; /* ★これがはみ出た縦長画像をカットする一番重要な命綱です */
-    position: relative;
+    overflow: hidden;
+    margin-bottom: 150px ;
 }
 
-.main-slider {
-    width: 100%;
-    margin: 0 auto;
-}
-
-/* 2. 画像を包むコンテナのサイズを統一する */
-.slider-item {
-    outline: none; /* クリックした時の青い枠線を消す */
-}
-
-/* 3. 画像自体のサイズを完全に均一にして、縦長写真も自動トリミングする */
 .slider-item img {
     width: 100%;
-    height: 450px;      /* ★スライドショーの「高さ」をここで固定します（お好みで調整OK） */
-    object-fit: cover;  /* ★画像がびよーんと伸びるのを防ぎ、綺麗に中央で切り抜く魔法のプロパティ */
-    border-radius: 15px; /* 角を少し丸くしてマイルドに */
-    padding: 0 15px;    /* 画像と画像の間に程よいスキマを作る */
-    opacity: 0.4;       /* 真ん中以外の画像は、一歩引いて少し薄くしておく */
-    transition: opacity 0.3s ease; /* 切り替わるときに滑らかにフェード */
+    height: 420px;       /* 高さを少し抑えてスマートに */
+    object-fit: cover;
+    border-radius: 24px; /* 角丸を大きめにして、より「Rounded」な印象に */
+    border: 2px solid #e1d3c1; /* 画像の周りに極薄のベージュの枠線を引いて上品に */
+    box-shadow: 0 4px 15px rgba(92, 70, 54, 0.05); /* 柔らかい影 */
+    opacity: 0.4;        /* 中央以外の画像の存在感を優しく薄める */
+    transition: all 0.4s ease;
 }
 
-/* 4. ★今、中央（メイン）に来ている画像だけをクッキリ明るく100%表示にする */
+/* 真ん中に来た画像だけをクッキリ浮き立たせる */
 .main-slider .slick-center img {
     opacity: 1;
+    box-shadow: 0 8px 25px rgba(92, 70, 54, 0.12); /* 中央は少し影を強める */
+    transform: scale(1.02); /* ほんの一文字分だけ大きくして立体感を出す */
 }
 
-/* 5. 下のドット（...）の位置や余白をちょっとおしゃれに調整 */
-.slick-dots {
-    bottom: -30px;
+/* ==========================================================
+ * アップロードボタン（Bootstrapの青に縛られない独自デザイン）
+ * ========================================================== */
+.btn-upload {
+    background-color: #8d7360; /* 優しいココア色 */
+    color: #ffffff;
+    border: 1px solid #8d7360;
+    border-radius: 25px;       /* 完全なカプセル型 */
+    font-weight: 700;
+    padding: 10px 30px;
+    box-shadow: 0 4px 12px rgba(141, 115, 96, 0.2);
+    transition: all 0.3s ease;
 }
-.slick-dots li button:before {
-    font-size: 10px;
-    color: #000;
+
+.btn-upload:hover {
+    background-color: #755e4e;
+    border-color: #755e4e;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(141, 115, 96, 0.3);
+}
+
+
+
+/* ==========================================================
+ * アップロードエリアのデザイン
+ * ========================================================== */
+.upload-area {
+    text-align: center;
+}
+
+/* 本物のファイル選択バーは不細工なので、画面上から完全に隠します */
+#file_upload {
+    display: none;
+}
+
+/* 大きな枠のデザイン（ドロップゾーン風） */
+.upload-drop-zone {
+    display: block;
+    width: 100%;
+    padding: 3rem 2rem;
+    background-color: #ffffff; /* 内側は真っ白にしてスッキリ */
+    border: 3px dashed #dcd3c4; /* 可愛いカフェオレ色の「点線」の枠 */
+    border-radius: 24px;       /* 全体に合わせて丸角に */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(92, 70, 54, 0.02);
+}
+
+/* マウスを乗せた（ホバーした）ときの心地いいアニメーション */
+.upload-drop-zone:hover {
+    background-color: #fbf9f6;   /* ほんのりミルク色に変わる */
+    border-color: #8d7360;       /* 点線がココアブラウンに濃くなる */
+    transform: translateY(-2px); /* 2ピクセルだけ上にフワッと浮く */
+    box-shadow: 0 8px 20px rgba(141, 115, 96, 0.08);
+}
+
+/* 中身のアイコンや文字の配置 */
+.upload-zone-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 真ん中に置く大きなアイコン */
+.upload-icon {
+    font-size: 3.5rem;   /* アイコンをめちゃくちゃ大きく！ */
+    color: #8d7360;      /* 優しいココア色 */
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+/* ホバー時にアイコンだけがピョコッと上に動く遊び心 */
+.upload-drop-zone:hover .upload-icon {
+    transform: translateY(-4px) scale(1.05);
+}
+
+/* メインの案内文字 */
+.upload-text-main {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #5c4636;
+    margin-bottom: 0.3rem;
+}
+
+/* 補足の案内文字 */
+.upload-text-sub {
+    font-size: 0.9rem;
+    color: #a39284;
+    margin-bottom: 0.8rem;
+}
+
+/* ファイル名プレビューの初期スタイル */
+#file-name-preview {
+    background-color: #ffffff; /* 初期は白背景 */
+    color: #8d7360;            /* カフェラテ文字 */
+    border: 1px solid #ebdccb;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    max-width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ==========================================================
+ * ギャラリーページ
+ * ========================================================== */
+.gallery-section {
+    margin-bottom: 100px;
 }
