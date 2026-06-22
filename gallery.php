@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+// 読み込み側のファイルの先頭にも追加
+>>>>>>> 32d0940d205a6f17ea01377ca746e07966ab6d19
 date_default_timezone_set('Asia/Tokyo');
 // 先頭でロジックファイルを読み込む
 require_once 'gallery_logic.php';
@@ -22,7 +26,11 @@ require_once 'gallery_logic.php';
     <link rel="stylesheet" href="js/slick/slick-theme.css">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<<<<<<< HEAD
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+=======
+
+>>>>>>> 32d0940d205a6f17ea01377ca746e07966ab6d19
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
