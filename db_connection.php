@@ -1,7 +1,8 @@
 <?php
+
 $dsn      = 'mysql:dbname=photo;host=localhost;charset=utf8mb4';
-$user     = 'root'; // ★ここを一旦 'root' にしてください！
-$password = '';     // ★ここを一旦空（パスワードなし）にしてください！
+$user     = 'root';
+$password = '';
 
 try {
     $pdo = new PDO($dsn, $user, $password, [
@@ -11,4 +12,3 @@ try {
 } catch (PDOException $e) {
     die('DB接続エラー: ' . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8'));
 }
-?>
