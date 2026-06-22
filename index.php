@@ -38,13 +38,13 @@
             <?php
                 // 読み込み側のファイルの先頭にも追加
                 date_default_timezone_set('Asia/Tokyo');
-                // DB接続ファイルを読み込む
-                require_once 'db_connection.php';
+            // DB接続ファイルを読み込む
+            require_once 'db_connection.php';
 
-                // SQLを実行
-                $sql = "SELECT file_name FROM photo ORDER BY RAND() LIMIT 20";
-                $stmt = $pdo->query($sql);
-                $files = $stmt->fetchAll();
+            // SQLを実行
+            $sql = "SELECT file_name FROM photo ORDER BY RAND() LIMIT 20";
+            $stmt = $pdo->query($sql);
+            $files = $stmt->fetchAll();
             ?>
 
             <div class="main-slider">
