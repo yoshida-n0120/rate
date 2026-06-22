@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rate-album</title>
-    <!-- Google Fonts からフォントを読み込む -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="js/slick/slick-theme.css">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <!-- original css -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -58,10 +58,7 @@
 
         <section class="upload-area my-5"> 
             <h2>ラテの写真をアップロード</h2>
-            <form action="up.php" method="POST" enctype="multipart/form-data" class="mt-4">
-                
-                <input type="hidden" name="client_upload_time" id="client_upload_time">
-
+            <form id="upload-form" action="up.php" method="POST" enctype="multipart/form-data" class="mt-4">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-10 col-lg-8">
                         
